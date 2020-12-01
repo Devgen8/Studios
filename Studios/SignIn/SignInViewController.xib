@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Studios" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNJ-gb-SDj">
+                    <rect key="frame" x="10" y="242" width="394" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0I3-wO-J7e"/>
+                    </constraints>
+                    <state key="normal" title="Войти"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNk-pH-aOr">
+                    <rect key="frame" x="344" y="54" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="T22-Gq-s9M"/>
+                        <constraint firstAttribute="height" constant="60" id="p4A-hH-8lf"/>
+                    </constraints>
+                    <state key="normal">
+                        <imageReference key="image" image="clear" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="quitTapped:" destination="-1" eventType="touchUpInside" id="yvh-i7-3V8"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8iT-mH-gYP">
+                    <rect key="frame" x="10" y="134" width="394" height="88"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Электронная почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urv-xZ-dRG">
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zsf-xQ-exT">
+                            <rect key="frame" x="0.0" y="54" width="394" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gNk-pH-aOr" secondAttribute="trailing" constant="10" id="5Qw-wg-lkX"/>
+                <constraint firstItem="gNk-pH-aOr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="R14-wT-Dic"/>
+                <constraint firstItem="gNJ-gb-SDj" firstAttribute="top" secondItem="8iT-mH-gYP" secondAttribute="bottom" constant="20" id="VVb-x5-Ew6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8iT-mH-gYP" secondAttribute="trailing" constant="10" id="Wdy-sc-EZv"/>
+                <constraint firstItem="8iT-mH-gYP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="eyg-K4-uXl"/>
+                <constraint firstItem="8iT-mH-gYP" firstAttribute="top" secondItem="gNk-pH-aOr" secondAttribute="bottom" constant="20" id="fRA-Fa-4VM"/>
+                <constraint firstItem="gNJ-gb-SDj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hgK-3J-wUp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gNJ-gb-SDj" secondAttribute="trailing" constant="10" id="nCh-vX-AhB"/>
+            </constraints>
+            <point key="canvasLocation" x="281" y="91"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

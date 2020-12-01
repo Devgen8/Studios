@@ -1,11 +1,6 @@
-//
-//  SceneDelegate.swift
-//  Studios
-//
-//  Created by Evgeny Kamaev on 01.12.2020.
-//
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,7 +8,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        if Auth.auth().currentUser == nil {
+            window?.rootViewController = WelcomeScreenViewController()
+        } else {
+            window?.rootViewController = TabBarViewController()
+        }
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
