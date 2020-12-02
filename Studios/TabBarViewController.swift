@@ -10,8 +10,9 @@ class TabBarViewController: UITabBarController {
     }
     
     func setupTabBarItems() {
-        let trainerItem = UITabBarItem(title: "Студии", image: nil, selectedImage: nil)
-        let studiosViewController = StudiosViewController()
+        let trainerItem = UITabBarItem(title: "Студия", image: nil, selectedImage: nil)
+        let studiosViewController = UINavigationController(rootViewController: StudiosViewController())
+        studiosViewController.navigationBar.topItem?.title = "Студия"
         studiosViewController.tabBarItem = trainerItem
         
         viewControllers = [studiosViewController]

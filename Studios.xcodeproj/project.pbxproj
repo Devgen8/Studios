@@ -15,15 +15,8 @@
 		48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FA025765EEA00AEEE46 /* StudiosViewController.swift */; };
 		48164FA325765EEA00AEEE46 /* StudiosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FA125765EEA00AEEE46 /* StudiosViewController.xib */; };
 		48164FA6257661C200AEEE46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48164FA5257661C200AEEE46 /* GoogleService-Info.plist */; };
-		48164FBD2576677400AEEE46 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FBB2576677400AEEE46 /* SignUpViewController.swift */; };
-		48164FBE2576677400AEEE46 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FBC2576677400AEEE46 /* SignUpViewController.xib */; };
-		48164FD72576D93500AEEE46 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FD52576D93500AEEE46 /* WelcomeScreenViewController.swift */; };
-		48164FD82576D93500AEEE46 /* WelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FD62576D93500AEEE46 /* WelcomeScreenViewController.xib */; };
-		48164FDC2576DA3600AEEE46 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FDA2576DA3600AEEE46 /* SignInViewController.swift */; };
-		48164FDD2576DA3600AEEE46 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FDB2576DA3600AEEE46 /* SignInViewController.xib */; };
-		48164FFD2577819600AEEE46 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FFC2577819600AEEE46 /* SignInModel.swift */; };
-		481650002577841B00AEEE46 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FFF2577841B00AEEE46 /* SignUpModel.swift */; };
-		4816500325778E7E00AEEE46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816500225778E7E00AEEE46 /* User.swift */; };
+		481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481650342577B5D600AEEE46 /* TimeCollectionViewCell.swift */; };
+		481650372577B5D600AEEE46 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 481650352577B5D600AEEE46 /* TimeCollectionViewCell.xib */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,15 +33,8 @@
 		48164FA025765EEA00AEEE46 /* StudiosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiosViewController.swift; sourceTree = "<group>"; };
 		48164FA125765EEA00AEEE46 /* StudiosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudiosViewController.xib; sourceTree = "<group>"; };
 		48164FA5257661C200AEEE46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		48164FBB2576677400AEEE46 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		48164FBC2576677400AEEE46 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
-		48164FD52576D93500AEEE46 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
-		48164FD62576D93500AEEE46 /* WelcomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeScreenViewController.xib; sourceTree = "<group>"; };
-		48164FDA2576DA3600AEEE46 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		48164FDB2576DA3600AEEE46 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
-		48164FFC2577819600AEEE46 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
-		48164FFF2577841B00AEEE46 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		4816500225778E7E00AEEE46 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		481650342577B5D600AEEE46 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		481650352577B5D600AEEE46 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,45 +75,13 @@
 				48164F802576573600AEEE46 /* AppDelegate.swift */,
 				48164F822576573600AEEE46 /* SceneDelegate.swift */,
 				48164F9925765DB800AEEE46 /* TabBarViewController.swift */,
-				48164FE12576DD1E00AEEE46 /* WelcomeScreen */,
-				48164FDF2576DD0D00AEEE46 /* SignIn */,
-				48164FE32576DD2B00AEEE46 /* SignUp */,
 				48164FE52576DD3800AEEE46 /* Studios */,
+				481650392577BE3C00AEEE46 /* TimeCollectionViewCell */,
 				48164F892576573700AEEE46 /* Assets.xcassets */,
 				48164F8B2576573700AEEE46 /* LaunchScreen.storyboard */,
 				48164F8E2576573700AEEE46 /* Info.plist */,
 			);
 			path = Studios;
-			sourceTree = "<group>";
-		};
-		48164FDF2576DD0D00AEEE46 /* SignIn */ = {
-			isa = PBXGroup;
-			children = (
-				48164FDA2576DA3600AEEE46 /* SignInViewController.swift */,
-				48164FFC2577819600AEEE46 /* SignInModel.swift */,
-				48164FDB2576DA3600AEEE46 /* SignInViewController.xib */,
-			);
-			path = SignIn;
-			sourceTree = "<group>";
-		};
-		48164FE12576DD1E00AEEE46 /* WelcomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				48164FD52576D93500AEEE46 /* WelcomeScreenViewController.swift */,
-				48164FD62576D93500AEEE46 /* WelcomeScreenViewController.xib */,
-			);
-			path = WelcomeScreen;
-			sourceTree = "<group>";
-		};
-		48164FE32576DD2B00AEEE46 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				48164FBB2576677400AEEE46 /* SignUpViewController.swift */,
-				48164FFF2577841B00AEEE46 /* SignUpModel.swift */,
-				48164FBC2576677400AEEE46 /* SignUpViewController.xib */,
-				4816500225778E7E00AEEE46 /* User.swift */,
-			);
-			path = SignUp;
 			sourceTree = "<group>";
 		};
 		48164FE52576DD3800AEEE46 /* Studios */ = {
@@ -137,6 +91,15 @@
 				48164FA125765EEA00AEEE46 /* StudiosViewController.xib */,
 			);
 			path = Studios;
+			sourceTree = "<group>";
+		};
+		481650392577BE3C00AEEE46 /* TimeCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				481650342577B5D600AEEE46 /* TimeCollectionViewCell.swift */,
+				481650352577B5D600AEEE46 /* TimeCollectionViewCell.xib */,
+			);
+			path = TimeCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		73BDCCE249E9BC2B9DE79F02 /* Frameworks */ = {
@@ -215,11 +178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48164FBE2576677400AEEE46 /* SignUpViewController.xib in Resources */,
 				48164F8D2576573700AEEE46 /* LaunchScreen.storyboard in Resources */,
 				48164FA6257661C200AEEE46 /* GoogleService-Info.plist in Resources */,
-				48164FD82576D93500AEEE46 /* WelcomeScreenViewController.xib in Resources */,
-				48164FDD2576DA3600AEEE46 /* SignInViewController.xib in Resources */,
+				481650372577B5D600AEEE46 /* TimeCollectionViewCell.xib in Resources */,
 				48164FA325765EEA00AEEE46 /* StudiosViewController.xib in Resources */,
 				48164F8A2576573700AEEE46 /* Assets.xcassets in Resources */,
 			);
@@ -274,16 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48164FDC2576DA3600AEEE46 /* SignInViewController.swift in Sources */,
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
-				481650002577841B00AEEE46 /* SignUpModel.swift in Sources */,
 				48164F832576573600AEEE46 /* SceneDelegate.swift in Sources */,
 				48164F9B25765DB800AEEE46 /* TabBarViewController.swift in Sources */,
-				48164FFD2577819600AEEE46 /* SignInModel.swift in Sources */,
-				48164FBD2576677400AEEE46 /* SignUpViewController.swift in Sources */,
-				4816500325778E7E00AEEE46 /* User.swift in Sources */,
-				48164FD72576D93500AEEE46 /* WelcomeScreenViewController.swift in Sources */,
+				481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,5 +8,5 @@ target 'Studios' do
   # Pods for Studios
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
-  pod 'Firebase/Auth'
+  pod 'FSCalendar'
 end
