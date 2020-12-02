@@ -21,6 +21,9 @@
 		48164FD82576D93500AEEE46 /* WelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FD62576D93500AEEE46 /* WelcomeScreenViewController.xib */; };
 		48164FDC2576DA3600AEEE46 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FDA2576DA3600AEEE46 /* SignInViewController.swift */; };
 		48164FDD2576DA3600AEEE46 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48164FDB2576DA3600AEEE46 /* SignInViewController.xib */; };
+		48164FFD2577819600AEEE46 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FFC2577819600AEEE46 /* SignInModel.swift */; };
+		481650002577841B00AEEE46 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48164FFF2577841B00AEEE46 /* SignUpModel.swift */; };
+		4816500325778E7E00AEEE46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816500225778E7E00AEEE46 /* User.swift */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		48164FD62576D93500AEEE46 /* WelcomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeScreenViewController.xib; sourceTree = "<group>"; };
 		48164FDA2576DA3600AEEE46 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		48164FDB2576DA3600AEEE46 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		48164FFC2577819600AEEE46 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		48164FFF2577841B00AEEE46 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		4816500225778E7E00AEEE46 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				48164FDA2576DA3600AEEE46 /* SignInViewController.swift */,
+				48164FFC2577819600AEEE46 /* SignInModel.swift */,
 				48164FDB2576DA3600AEEE46 /* SignInViewController.xib */,
 			);
 			path = SignIn;
@@ -116,7 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				48164FBB2576677400AEEE46 /* SignUpViewController.swift */,
+				48164FFF2577841B00AEEE46 /* SignUpModel.swift */,
 				48164FBC2576677400AEEE46 /* SignUpViewController.xib */,
+				4816500225778E7E00AEEE46 /* User.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -268,9 +277,12 @@
 				48164FDC2576DA3600AEEE46 /* SignInViewController.swift in Sources */,
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
+				481650002577841B00AEEE46 /* SignUpModel.swift in Sources */,
 				48164F832576573600AEEE46 /* SceneDelegate.swift in Sources */,
 				48164F9B25765DB800AEEE46 /* TabBarViewController.swift in Sources */,
+				48164FFD2577819600AEEE46 /* SignInModel.swift in Sources */,
 				48164FBD2576677400AEEE46 /* SignUpViewController.swift in Sources */,
+				4816500325778E7E00AEEE46 /* User.swift in Sources */,
 				48164FD72576D93500AEEE46 /* WelcomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

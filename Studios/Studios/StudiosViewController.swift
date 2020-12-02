@@ -1,5 +1,6 @@
 
 import UIKit
+import FirebaseAuth
 
 class StudiosViewController: UIViewController {
 
@@ -9,6 +10,7 @@ class StudiosViewController: UIViewController {
         super.viewDidLoad()
         studiosTableView.delegate = self
         studiosTableView.dataSource = self
+        try? Auth.auth().signOut()
     }
 }
 

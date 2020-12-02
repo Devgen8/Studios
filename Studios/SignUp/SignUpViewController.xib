@@ -11,6 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Studios" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="feu-OU-sHy" id="V7d-Yy-3Kx"/>
+                <outlet property="fathersNameTextField" destination="kaP-1r-NuT" id="ToL-Sr-Jlf"/>
+                <outlet property="loaderView" destination="nvr-oG-wtb" id="7OY-1G-aPJ"/>
+                <outlet property="nameTextField" destination="LDx-Xa-q4v" id="ngq-1T-rSu"/>
+                <outlet property="passwordTextField" destination="Sk2-ak-E6T" id="rST-s9-ng3"/>
+                <outlet property="phoneNumberTextField" destination="Sxj-oX-V0z" id="BrZ-6D-3Jc"/>
+                <outlet property="surnameTextField" destination="u4e-ot-C0M" id="crE-zb-Wrp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,6 +68,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Зарегистрироваться"/>
+                    <connections>
+                        <action selector="signUpTapped:" destination="-1" eventType="touchUpInside" id="e1g-8m-dzD"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z86-oa-1a2">
                     <rect key="frame" x="344" y="54" width="60" height="60"/>
@@ -76,20 +86,35 @@
                         <action selector="quitTapped:" destination="-1" eventType="touchUpInside" id="5ST-Il-q3V"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3T-d4-yaM">
+                    <rect key="frame" x="15" y="74" width="324" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="nvr-oG-wtb">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z86-oa-1a2" secondAttribute="trailing" constant="10" id="3KH-0N-Av2"/>
+                <constraint firstItem="g3T-d4-yaM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="4az-iy-AY4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8A9-Sq-zBz" secondAttribute="trailing" constant="10" id="IIB-Sx-CtY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zXK-WB-Ic9" secondAttribute="trailing" constant="10" id="MdZ-wP-wOs"/>
+                <constraint firstItem="g3T-d4-yaM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="P24-AM-U4f"/>
+                <constraint firstItem="z86-oa-1a2" firstAttribute="leading" secondItem="g3T-d4-yaM" secondAttribute="trailing" constant="5" id="P7M-0W-ltK"/>
                 <constraint firstItem="zXK-WB-Ic9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="W2u-OU-aGF"/>
                 <constraint firstItem="8A9-Sq-zBz" firstAttribute="top" secondItem="z86-oa-1a2" secondAttribute="bottom" constant="20" id="X8v-m9-6Sv"/>
+                <constraint firstItem="nvr-oG-wtb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Y83-VX-pMw"/>
+                <constraint firstItem="8A9-Sq-zBz" firstAttribute="top" secondItem="g3T-d4-yaM" secondAttribute="bottom" constant="39" id="a4T-Rz-O9w"/>
                 <constraint firstItem="zXK-WB-Ic9" firstAttribute="top" secondItem="8A9-Sq-zBz" secondAttribute="bottom" constant="10" id="cE5-Lp-vtP"/>
+                <constraint firstItem="nvr-oG-wtb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eCD-r3-Gjd"/>
                 <constraint firstItem="8A9-Sq-zBz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="eEX-OY-f6h"/>
                 <constraint firstItem="z86-oa-1a2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="tti-FF-0cL"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="122"/>
+            <point key="canvasLocation" x="137.68115942028987" y="121.875"/>
         </view>
     </objects>
     <resources>
