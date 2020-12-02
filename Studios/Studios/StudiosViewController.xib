@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StudiosViewController" customModule="Studios" customModuleProvider="target">
             <connections>
+                <outlet property="bookButton" destination="YjP-95-cIQ" id="7jC-j7-mJy"/>
                 <outlet property="calendar" destination="ndg-ez-mkG" id="s9B-Dq-zj3"/>
+                <outlet property="cancelButton" destination="2Xq-ZQ-lz5" id="tzf-sU-eIz"/>
                 <outlet property="scheduleCollectionView" destination="RQx-oK-pUG" id="YWE-hg-QSh"/>
                 <outlet property="statusLabel" destination="gAM-ka-KLM" id="rWc-rf-0SM"/>
                 <outlet property="timePickingSegmentedControl" destination="O9q-1z-PwW" id="JY6-Nj-yIv"/>
@@ -52,7 +54,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RQx-oK-pUG">
-                                    <rect key="frame" x="10" y="425" width="394" height="330"/>
+                                    <rect key="frame" x="10" y="463" width="394" height="330"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="330" id="H6V-LM-DiH"/>
@@ -70,24 +72,49 @@
                                         <segment title="Начало"/>
                                         <segment title="Окончание"/>
                                     </segments>
+                                    <connections>
+                                        <action selector="timeMarkChanged:" destination="-1" eventType="valueChanged" id="8Oc-bT-eKN"/>
+                                    </connections>
                                 </segmentedControl>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="f4W-yC-3q8">
+                                    <rect key="frame" x="10" y="423" width="394" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjP-95-cIQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                            <state key="normal" title="Бронировать"/>
+                                            <connections>
+                                                <action selector="bookTapped:" destination="-1" eventType="touchUpInside" id="Pd6-qz-cUR"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xq-ZQ-lz5">
+                                            <rect key="frame" x="207" y="0.0" width="187" height="30"/>
+                                            <state key="normal" title="Отмена"/>
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="Z99-wE-awp"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="O9q-1z-PwW" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="4EQ-nK-I0K"/>
                                 <constraint firstItem="ndg-ez-mkG" firstAttribute="top" secondItem="2gn-MC-aGM" secondAttribute="bottom" constant="20" id="4Yb-oz-5pJ"/>
                                 <constraint firstItem="RQx-oK-pUG" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="73c-46-a5I"/>
-                                <constraint firstItem="RQx-oK-pUG" firstAttribute="top" secondItem="O9q-1z-PwW" secondAttribute="bottom" constant="10" id="7kR-6y-x2L"/>
+                                <constraint firstAttribute="trailing" secondItem="O9q-1z-PwW" secondAttribute="trailing" constant="10" id="7UW-PU-8Yd"/>
+                                <constraint firstItem="f4W-yC-3q8" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="EnR-aU-C87"/>
                                 <constraint firstAttribute="trailing" secondItem="RQx-oK-pUG" secondAttribute="trailing" constant="10" id="HDk-mQ-FJE"/>
                                 <constraint firstItem="ndg-ez-mkG" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="I6i-QT-qJi"/>
                                 <constraint firstAttribute="height" constant="800" id="Ivo-wh-4QI"/>
+                                <constraint firstAttribute="trailing" secondItem="f4W-yC-3q8" secondAttribute="trailing" constant="10" id="JB9-LG-BNO"/>
+                                <constraint firstItem="RQx-oK-pUG" firstAttribute="top" secondItem="f4W-yC-3q8" secondAttribute="bottom" constant="10" id="Kk5-Nt-jTh"/>
                                 <constraint firstItem="2gn-MC-aGM" firstAttribute="top" secondItem="gAM-ka-KLM" secondAttribute="bottom" constant="10" id="PCK-v8-mR3"/>
                                 <constraint firstItem="gAM-ka-KLM" firstAttribute="top" secondItem="Dce-57-f92" secondAttribute="top" constant="20" id="POE-gQ-i4P"/>
                                 <constraint firstItem="2gn-MC-aGM" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="20" id="Z8N-Xa-ntm"/>
-                                <constraint firstAttribute="trailing" secondItem="O9q-1z-PwW" secondAttribute="trailing" constant="10" id="csS-Sd-NOf"/>
+                                <constraint firstItem="f4W-yC-3q8" firstAttribute="top" secondItem="O9q-1z-PwW" secondAttribute="bottom" constant="8" symbolic="YES" id="ftl-Mw-uGM"/>
                                 <constraint firstItem="gAM-ka-KLM" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="guh-pc-mXo"/>
-                                <constraint firstItem="O9q-1z-PwW" firstAttribute="leading" secondItem="Dce-57-f92" secondAttribute="leading" constant="10" id="s5L-hS-3IN"/>
                                 <constraint firstAttribute="trailing" secondItem="gAM-ka-KLM" secondAttribute="trailing" constant="10" id="stH-Sd-uBk"/>
-                                <constraint firstItem="O9q-1z-PwW" firstAttribute="top" secondItem="ndg-ez-mkG" secondAttribute="bottom" constant="10" id="stO-K9-Xp9"/>
+                                <constraint firstItem="O9q-1z-PwW" firstAttribute="top" secondItem="ndg-ez-mkG" secondAttribute="bottom" constant="10" id="w1J-QD-MK9"/>
                                 <constraint firstAttribute="trailing" secondItem="ndg-ez-mkG" secondAttribute="trailing" constant="10" id="zsy-sK-Fsv"/>
                             </constraints>
                         </view>
@@ -112,7 +139,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bUz-rb-Vv8" secondAttribute="trailing" id="sux-8e-gEh"/>
                 <constraint firstItem="bUz-rb-Vv8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="u4R-60-YqG"/>
             </constraints>
-            <point key="canvasLocation" x="-75.362318840579718" y="145.98214285714286"/>
+            <point key="canvasLocation" x="547.82608695652175" y="133.92857142857142"/>
         </view>
     </objects>
     <resources>

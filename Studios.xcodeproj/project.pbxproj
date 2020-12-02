@@ -17,6 +17,8 @@
 		48164FA6257661C200AEEE46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48164FA5257661C200AEEE46 /* GoogleService-Info.plist */; };
 		481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481650342577B5D600AEEE46 /* TimeCollectionViewCell.swift */; };
 		481650372577B5D600AEEE46 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 481650352577B5D600AEEE46 /* TimeCollectionViewCell.xib */; };
+		4816503B2577C9FB00AEEE46 /* StudiosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816503A2577C9FB00AEEE46 /* StudiosModel.swift */; };
+		4816503E25780B1400AEEE46 /* AdminMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816503D25780B1400AEEE46 /* AdminMode.swift */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		48164FA5257661C200AEEE46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		481650342577B5D600AEEE46 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		481650352577B5D600AEEE46 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		4816503A2577C9FB00AEEE46 /* StudiosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiosModel.swift; sourceTree = "<group>"; };
+		4816503D25780B1400AEEE46 /* AdminMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMode.swift; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				48164FA025765EEA00AEEE46 /* StudiosViewController.swift */,
+				4816503A2577C9FB00AEEE46 /* StudiosModel.swift */,
+				4816503D25780B1400AEEE46 /* AdminMode.swift */,
 				48164FA125765EEA00AEEE46 /* StudiosViewController.xib */,
 			);
 			path = Studios;
@@ -236,10 +242,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
+				4816503B2577C9FB00AEEE46 /* StudiosModel.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
 				48164F832576573600AEEE46 /* SceneDelegate.swift in Sources */,
 				48164F9B25765DB800AEEE46 /* TabBarViewController.swift in Sources */,
 				481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */,
+				4816503E25780B1400AEEE46 /* AdminMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
