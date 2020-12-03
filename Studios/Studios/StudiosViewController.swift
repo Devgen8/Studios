@@ -11,6 +11,8 @@ class StudiosViewController: UIViewController {
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    let betweenBlueColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+    
     var startTimeCellIndex: Int? {
         didSet {
             colorBetweenDates()
@@ -60,6 +62,7 @@ class StudiosViewController: UIViewController {
         } else {
             model.setAdminMode(.read)
             navigationItem.rightBarButtonItem?.title = "Просмотр"
+            cancelBookingProcess()
         }
         configureScreenElements()
     }
@@ -99,6 +102,21 @@ class StudiosViewController: UIViewController {
         bookButton.isHidden = !(startTimeCellIndex != nil && endTimeCellIndex != nil)
     }
     
+    func cancelBookingProcess() {
+        guard startTimeCellIndex != nil || endTimeCellIndex != nil else {
+            return
+        }
+        if let startIndex = startTimeCellIndex {
+            eraseCells(from: startIndex, to: endTimeCellIndex ?? startIndex)
+        }
+        if let endIndex = endTimeCellIndex {
+            eraseCells(from: startTimeCellIndex ?? endIndex, to: endIndex)
+        }
+        startTimeCellIndex = nil
+        endTimeCellIndex = nil
+        setupBookButton()
+    }
+    
     @IBAction func timeMarkChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             model.setTimeMark(.start)
@@ -112,7 +130,7 @@ class StudiosViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
-        
+        cancelBookingProcess()
     }
 }
 
@@ -134,17 +152,38 @@ extension StudiosViewController: UICollectionViewDelegate {
         if model.getAdminMode() == .edit {
             if model.isStudioEmpty(at: indexPath.row) {
                 if model.getTimeMark() == .start {
-                    if let index = startTimeCellIndex {
+                    if let endIndex = endTimeCellIndex, indexPath.row > endIndex {
+                        return
+                    }
+                    if let index = startTimeCellIndex, index != endTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
                     }
-                    startTimeCellIndex = indexPath.row
+                    if let startIndex = startTimeCellIndex, startIndex == indexPath.row {
+                        startTimeCellIndex = nil
+                        if let endIndex = endTimeCellIndex {
+                            eraseCells(from: startIndex + 1, to: endIndex + 1)
+                        }
+                    } else {
+                        startTimeCellIndex = indexPath.row
+                        collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+                    }
                 } else {
-                    if let index = endTimeCellIndex {
+                    if let startIndex = startTimeCellIndex, indexPath.row < startIndex {
+                        return
+                    }
+                    if let index = endTimeCellIndex, index != startTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
                     }
-                    endTimeCellIndex = indexPath.row
+                    if let endIndex = endTimeCellIndex, endIndex == indexPath.row {
+                        endTimeCellIndex = nil
+                        if let startIndex = startTimeCellIndex {
+                            eraseCells(from: startIndex + 1, to: endIndex + 1)
+                        }
+                    } else {
+                        endTimeCellIndex = indexPath.row
+                        collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+                    }
                 }
-                collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
                 setupBookButton()
             } else {
                 
@@ -154,8 +193,11 @@ extension StudiosViewController: UICollectionViewDelegate {
     
     func colorBetweenDates() {
         guard let startIndex = startTimeCellIndex,
-              let endIndex = endTimeCellIndex,
-              startIndex != endIndex else {
+              let endIndex = endTimeCellIndex else {
+            return
+        }
+        guard startIndex != endIndex else {
+            eraseOddBetweenColors(except: startIndex)
             return
         }
         for cellIndex in 0..<model.getNumberOfTimes() {
@@ -163,8 +205,24 @@ extension StudiosViewController: UICollectionViewDelegate {
                 continue
             }
             if ((startIndex + 1)..<endIndex).contains(cellIndex) {
-                scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = betweenBlueColor
             } else {
+                scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white
+            }
+        }
+    }
+    
+    func eraseOddBetweenColors(except index: Int) {
+        for cellIndex in 0..<model.getNumberOfTimes() {
+            if scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor == betweenBlueColor {
+                scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white
+            }
+        }
+    }
+    
+    func eraseCells(from startIndex: Int, to endIndex: Int) {
+        for cellIndex in 0..<model.getNumberOfTimes() {
+            if (startIndex...endIndex).contains(cellIndex) {
                 scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white
             }
         }
