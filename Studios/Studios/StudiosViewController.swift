@@ -29,6 +29,7 @@ class StudiosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        model.setSelectedDay(day: Date())
         configureCollectionView()
         configureNavigationItem()
         configureScreenElements()
@@ -126,7 +127,12 @@ class StudiosViewController: UIViewController {
     }
     
     @IBAction func bookTapped(_ sender: UIButton) {
-        
+        let bookingFormViewController = BookingFormViewController()
+        model.transportData(to: bookingFormViewController.model,
+                            startTimeIndex: startTimeCellIndex ?? 0,
+                            endTimeIndex: endTimeCellIndex ?? 0)
+        bookingFormViewController.modalPresentationStyle = .fullScreen
+        present(bookingFormViewController, animated: true)
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
@@ -235,6 +241,11 @@ extension StudiosViewController: FSCalendarDataSource {
 
 extension StudiosViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        dayChanged(for: date)
+    }
+    
+    func dayChanged(for date: Date) {
         model.setSelectedDay(day: date)
+        cancelBookingProcess()
     }
 }

@@ -6,7 +6,7 @@ class StudiosModel {
     private var bookingTime = [String]()
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.mm.yyyy"
+        formatter.dateFormat = "dd.MM.yyyy"
         return formatter
     }()
     private var selectedDay = String()
@@ -52,5 +52,11 @@ class StudiosModel {
     
     func getNumberOfTimes() -> Int {
         return numberOfTimes
+    }
+    
+    func transportData(to model: BookingFormModel, startTimeIndex: Int, endTimeIndex: Int) {
+        model.selectedDate = selectedDay
+        model.startTime = startTimeIndex + studioOpenTime
+        model.endTime = endTimeIndex + studioOpenTime + 1
     }
 }
