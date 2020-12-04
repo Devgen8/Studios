@@ -82,6 +82,20 @@ class StudiosModel {
         return !bookingTime.contains(bookingTimeString)
     }
     
+    func isStudioEmptyBetween(_ startIndex: Int, and endIndex: Int) -> Bool {
+        var possibleTimeArray = [String]()
+        let bookingTime = edgeTimes + betweenTimes
+        for hour in (startIndex + studioOpenTime)..<(endIndex + studioOpenTime) {
+            possibleTimeArray.append("\(hour):00")
+        }
+        for possibleTime in possibleTimeArray {
+            if bookingTime.contains(possibleTime) {
+                return false
+            }
+        }
+        return true
+    }
+    
     func setSelectedDay(day: Date) {
         selectedDay = dateFormatter.string(from: day)
     }

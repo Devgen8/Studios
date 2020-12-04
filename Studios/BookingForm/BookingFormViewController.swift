@@ -13,6 +13,7 @@ class BookingFormViewController: UIViewController {
     var blurEffectView = UIVisualEffectView()
     
     var model = BookingFormModel()
+    var scheduleUpdater: ScheduleUpdater?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +100,8 @@ class BookingFormViewController: UIViewController {
                 self.hideLoadingScreen()
                 self.presentNonActionAlert(message: error)
             } else {
+                self.hideLoadingScreen()
+                self.scheduleUpdater?.updateSchedule()
                 self.dismiss(animated: true)
             }
         }

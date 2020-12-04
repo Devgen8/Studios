@@ -183,6 +183,7 @@ class StudiosViewController: UIViewController {
         model.transportData(to: bookingFormViewController.model,
                             startTimeIndex: startTimeCellIndex ?? 0,
                             endTimeIndex: endTimeCellIndex ?? 0)
+        bookingFormViewController.scheduleUpdater = self
         bookingFormViewController.modalPresentationStyle = .fullScreen
         present(bookingFormViewController, animated: true)
     }
@@ -216,8 +217,16 @@ extension StudiosViewController: UICollectionViewDelegate {
                     if let endIndex = endTimeCellIndex, indexPath.row > endIndex {
                         return
                     }
+                    if let endIndex = endTimeCellIndex, !model.isStudioEmptyBetween(indexPath.row, and: endIndex) {
+                        return
+                    }
                     if let index = startTimeCellIndex, index != endTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
+                    }
+                    if let index = startTimeCellIndex, index == endTimeCellIndex {
+                        startTimeCellIndex = nil
+                        setupBookButton()
+                        return
                     }
                     if let startIndex = startTimeCellIndex, startIndex == indexPath.row {
                         startTimeCellIndex = nil
@@ -232,8 +241,16 @@ extension StudiosViewController: UICollectionViewDelegate {
                     if let startIndex = startTimeCellIndex, indexPath.row < startIndex {
                         return
                     }
+                    if let startIndex = startTimeCellIndex, !model.isStudioEmptyBetween(startIndex, and: indexPath.row) {
+                        return
+                    }
                     if let index = endTimeCellIndex, index != startTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
+                    }
+                    if let index = endTimeCellIndex, index == startTimeCellIndex {
+                        endTimeCellIndex = nil
+                        setupBookButton()
+                        return
                     }
                     if let endIndex = endTimeCellIndex, endIndex == indexPath.row {
                         endTimeCellIndex = nil
@@ -268,7 +285,9 @@ extension StudiosViewController: UICollectionViewDelegate {
             if ((startIndex + 1)..<endIndex).contains(cellIndex) {
                 scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = betweenBlueColor
             } else {
-                scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white
+                if model.isStudioEmpty(at: cellIndex) {
+                    scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white
+                }
             }
         }
     }
@@ -301,8 +320,18 @@ extension StudiosViewController: FSCalendarDelegate {
     
     func dayChanged(for date: Date) {
         model.setSelectedDay(day: date)
+        refreshSchedule()
+    }
+    
+    func refreshSchedule() {
         cancelBookingProcess()
         eraseCells(from: 0, to: model.getNumberOfTimes() - 1)
         prepareData()
+    }
+}
+
+extension StudiosViewController: ScheduleUpdater {
+    func updateSchedule() {
+        refreshSchedule()
     }
 }
