@@ -25,6 +25,7 @@
 		4816504E257A3E5200AEEE46 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816504C257A3E5200AEEE46 /* PriceTableViewCell.swift */; };
 		4816504F257A3E5200AEEE46 /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */; };
 		48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165053257A486F00AEEE46 /* CustonProtocols.swift */; };
+		4816505A257A655100AEEE46 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165059257A655100AEEE46 /* Booking.swift */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		4816504C257A3E5200AEEE46 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
 		48165053257A486F00AEEE46 /* CustonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonProtocols.swift; sourceTree = "<group>"; };
+		48165059257A655100AEEE46 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			children = (
 				48164FA025765EEA00AEEE46 /* StudiosViewController.swift */,
 				4816503A2577C9FB00AEEE46 /* StudiosModel.swift */,
+				48165059257A655100AEEE46 /* Booking.swift */,
 				4816503D25780B1400AEEE46 /* AdminMode.swift */,
 				48164FA125765EEA00AEEE46 /* StudiosViewController.xib */,
 			);
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
+				4816505A257A655100AEEE46 /* Booking.swift in Sources */,
 				4816503B2577C9FB00AEEE46 /* StudiosModel.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
 				48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */,

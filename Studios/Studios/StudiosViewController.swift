@@ -10,8 +10,13 @@ class StudiosViewController: UIViewController {
     @IBOutlet weak var timePickingSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    var blurEffectView = UIVisualEffectView()
+    var loaderView = UIActivityIndicatorView()
     
     let betweenBlueColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+    let betweenRedColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+    let edgeRedColor = #colorLiteral(red: 0.7611784935, green: 0, blue: 0.06764990836, alpha: 1)
+    let edgeBlueColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
     
     var startTimeCellIndex: Int? {
         didSet {
@@ -35,11 +40,26 @@ class StudiosViewController: UIViewController {
         configureScreenElements()
         configureCalendar()
         setupBookButton()
-        getStudioStatus()
+        addBlurView()
+        addLoaderView()
+        prepareData()
+    }
+    
+    private func prepareData() {
+        showLoadingScreen()
+        model.getSudioSchedule {
+            self.hideLoadingScreen()
+            DispatchQueue.main.async {
+                self.getStudioStatus()
+                self.scheduleCollectionView.reloadData()
+            }
+        }
     }
     
     private func getStudioStatus() {
-        let isEmpty = model.isStudioEmptyNow()
+        guard let isEmpty = model.isStudioEmptyNow() else {
+            return
+        }
         statusLabel.backgroundColor = isEmpty ? #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1) : #colorLiteral(red: 0.7611784935, green: 0, blue: 0.06764990836, alpha: 1)
         statusLabel.text = isEmpty ? "Время свободно" : "Забронировано"
     }
@@ -118,6 +138,38 @@ class StudiosViewController: UIViewController {
         setupBookButton()
     }
     
+    //MARK: - Loading Screen
+    
+    private func showLoadingScreen() {
+        view.bringSubviewToFront(blurEffectView)
+        view.bringSubviewToFront(loaderView)
+        loaderView.startAnimating()
+    }
+    
+    private func hideLoadingScreen() {
+        view.sendSubviewToBack(blurEffectView)
+        view.sendSubviewToBack(loaderView)
+        loaderView.stopAnimating()
+    }
+    
+    private func addBlurView() {
+        let blurEffect = UIBlurEffect(style: .light)
+        blurEffectView.effect = blurEffect
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        //view.sendSubviewToBack(blurEffectView)
+    }
+    
+    private func addLoaderView() {
+        //loaderView.hidesWhenStopped = true
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loaderView)
+        loaderView.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 2).isActive = true
+        loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //view.sendSubviewToBack(loaderView)
+    }
+    
     @IBAction func timeMarkChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             model.setTimeMark(.start)
@@ -147,8 +199,11 @@ extension StudiosViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCollectionViewCell", for: indexPath) as! TimeCollectionViewCell
-        let timeString = model.getTimeString(for: indexPath.row)
-        cell.timeLabel.text = "\(timeString):00"
+        let timeString = "\(model.getTimeString(for: indexPath.row)):00"
+        if let isEdge = model.isTimeEdge(timeString) {
+            cell.backgroundColor = isEdge ? edgeRedColor : betweenRedColor
+        }
+        cell.timeLabel.text = timeString
         return cell
     }
 }
@@ -171,7 +226,7 @@ extension StudiosViewController: UICollectionViewDelegate {
                         }
                     } else {
                         startTimeCellIndex = indexPath.row
-                        collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+                        collectionView.cellForItem(at: indexPath)?.backgroundColor = edgeBlueColor
                     }
                 } else {
                     if let startIndex = startTimeCellIndex, indexPath.row < startIndex {
@@ -187,7 +242,7 @@ extension StudiosViewController: UICollectionViewDelegate {
                         }
                     } else {
                         endTimeCellIndex = indexPath.row
-                        collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+                        collectionView.cellForItem(at: indexPath)?.backgroundColor = edgeBlueColor
                     }
                 }
                 setupBookButton()
@@ -247,5 +302,7 @@ extension StudiosViewController: FSCalendarDelegate {
     func dayChanged(for date: Date) {
         model.setSelectedDay(day: date)
         cancelBookingProcess()
+        eraseCells(from: 0, to: model.getNumberOfTimes() - 1)
+        prepareData()
     }
 }
