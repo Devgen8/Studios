@@ -22,6 +22,9 @@
 		481650422578E6E900AEEE46 /* BookingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481650402578E6E900AEEE46 /* BookingFormViewController.swift */; };
 		481650432578E6E900AEEE46 /* BookingFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 481650412578E6E900AEEE46 /* BookingFormViewController.xib */; };
 		4816504A2578F76F00AEEE46 /* BookingFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481650492578F76F00AEEE46 /* BookingFormModel.swift */; };
+		4816504E257A3E5200AEEE46 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816504C257A3E5200AEEE46 /* PriceTableViewCell.swift */; };
+		4816504F257A3E5200AEEE46 /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */; };
+		48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165053257A486F00AEEE46 /* CustonProtocols.swift */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		481650402578E6E900AEEE46 /* BookingFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingFormViewController.swift; sourceTree = "<group>"; };
 		481650412578E6E900AEEE46 /* BookingFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingFormViewController.xib; sourceTree = "<group>"; };
 		481650492578F76F00AEEE46 /* BookingFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingFormModel.swift; sourceTree = "<group>"; };
+		4816504C257A3E5200AEEE46 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
+		4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
+		48165053257A486F00AEEE46 /* CustonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonProtocols.swift; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,9 +91,11 @@
 				48164F802576573600AEEE46 /* AppDelegate.swift */,
 				48164F822576573600AEEE46 /* SceneDelegate.swift */,
 				48164F9925765DB800AEEE46 /* TabBarViewController.swift */,
+				48165053257A486F00AEEE46 /* CustonProtocols.swift */,
 				48164FE52576DD3800AEEE46 /* Studios */,
 				481650452578E6F100AEEE46 /* BookingForm */,
 				481650392577BE3C00AEEE46 /* TimeCollectionViewCell */,
+				48165056257A580400AEEE46 /* PriceTableViewCell */,
 				48164F892576573700AEEE46 /* Assets.xcassets */,
 				48164F8B2576573700AEEE46 /* LaunchScreen.storyboard */,
 				48164F8E2576573700AEEE46 /* Info.plist */,
@@ -123,6 +131,15 @@
 				481650412578E6E900AEEE46 /* BookingFormViewController.xib */,
 			);
 			path = BookingForm;
+			sourceTree = "<group>";
+		};
+		48165056257A580400AEEE46 /* PriceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4816504C257A3E5200AEEE46 /* PriceTableViewCell.swift */,
+				4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */,
+			);
+			path = PriceTableViewCell;
 			sourceTree = "<group>";
 		};
 		73BDCCE249E9BC2B9DE79F02 /* Frameworks */ = {
@@ -203,6 +220,7 @@
 			files = (
 				481650432578E6E900AEEE46 /* BookingFormViewController.xib in Resources */,
 				48164F8D2576573700AEEE46 /* LaunchScreen.storyboard in Resources */,
+				4816504F257A3E5200AEEE46 /* PriceTableViewCell.xib in Resources */,
 				48164FA6257661C200AEEE46 /* GoogleService-Info.plist in Resources */,
 				481650372577B5D600AEEE46 /* TimeCollectionViewCell.xib in Resources */,
 				48164FA325765EEA00AEEE46 /* StudiosViewController.xib in Resources */,
@@ -262,8 +280,10 @@
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
 				4816503B2577C9FB00AEEE46 /* StudiosModel.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
+				48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */,
 				4816504A2578F76F00AEEE46 /* BookingFormModel.swift in Sources */,
 				48164F832576573600AEEE46 /* SceneDelegate.swift in Sources */,
+				4816504E257A3E5200AEEE46 /* PriceTableViewCell.swift in Sources */,
 				48164F9B25765DB800AEEE46 /* TabBarViewController.swift in Sources */,
 				481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */,
 				481650422578E6E900AEEE46 /* BookingFormViewController.swift in Sources */,
