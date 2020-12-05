@@ -9,6 +9,7 @@ class BookingFormViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var instrumentsTableView: UITableView!
     @IBOutlet weak var fullPriceLabel: UILabel!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
     var loaderView = UIActivityIndicatorView()
     var blurEffectView = UIVisualEffectView()
     
@@ -44,9 +45,16 @@ class BookingFormViewController: UIViewController {
     
     func prepareData() {
         showLoadingScreen()
+        if model.isBookingEditing() {
+            model.fulfillEditingData()
+            nameTextField.text = model.getClientName()
+            surnameTextField.text = model.getClientSurname()
+            phoneNumberTextField.text = model.getClientPhoneNumber()
+        }
         model.getPriceList {
             self.hideLoadingScreen()
             DispatchQueue.main.async {
+                self.fullPriceLabel.text = self.model.getFullPriceString()
                 self.instrumentsTableView.reloadData()
             }
         }
@@ -79,16 +87,13 @@ class BookingFormViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
-        //view.sendSubviewToBack(blurEffectView)
     }
     
     private func addLoaderView() {
-        //loaderView.hidesWhenStopped = true
         loaderView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loaderView)
         loaderView.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 2).isActive = true
         loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //view.sendSubviewToBack(loaderView)
     }
     
     @IBAction func bookTapped(_ sender: UIButton) {
@@ -143,6 +148,7 @@ extension BookingFormViewController: UITableViewDataSource {
         cell.quantityTextField.text = quantity
         cell.priceUpdater = self
         cell.indexPath = indexPath
+        cell.quantityTextField.delegate = self
         return cell
     }
 }
@@ -173,5 +179,31 @@ extension BookingFormViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard textField != nameTextField,
+              textField != surnameTextField,
+              textField != phoneNumberTextField else {
+            return
+        }
+        liftViewTillTableView()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        guard textField != nameTextField,
+              textField != surnameTextField,
+              textField != phoneNumberTextField else {
+            return
+        }
+        returnToStandartSize()
+    }
+    
+    func liftViewTillTableView() {
+        viewHeight.constant = 950
+    }
+    
+    func returnToStandartSize() {
+        viewHeight.constant = 700
     }
 }

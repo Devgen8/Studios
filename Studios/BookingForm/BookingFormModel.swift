@@ -4,18 +4,19 @@ import FirebaseFirestore
 
 class BookingFormModel {
     
-    let priceListReference = Firestore.firestore().collection("priceList")
-    let bookingsReference = Firestore.firestore().collection("bookings")
+    private let priceListReference = Firestore.firestore().collection("priceList")
+    private let bookingsReference = Firestore.firestore().collection("bookings")
     
+    private var instruments = [String]()
+    private var instrumentPrices = [Int]()
+    private var extraServices = [String]()
+    private var extraServicesPrices = [Int]()
+    private var elementsQuantity = [String : Int]()
+    private var fullPrice = 0
     var startTime = Int()
     var endTime = Int()
     var selectedDate = String()
-    var instruments = [String]()
-    var instrumentPrices = [Int]()
-    var extraServices = [String]()
-    var extraServicesPrices = [Int]()
-    var elementsQuantity = [String : Int]()
-    var fullPrice = 0
+    var editingBooking: Booking?
     
     func getDateString() -> String {
         return "\(startTime):00 - \(endTime):00 \(selectedDate)"
@@ -57,7 +58,14 @@ class BookingFormModel {
                                                           "clientPhoneNumber" : phoneNumber,
                                                           "elementsQuantity" : elementsQuantity,
                                                           "fullPrice" : fullPrice])
+        deleteOldBooking()
         completion(nil)
+    }
+    
+    private func deleteOldBooking() {
+        if let oldBooking = editingBooking {
+            bookingsReference.document(oldBooking.creationDate).delete()
+        }
     }
     
     private func getTimeArray() -> [String] {
@@ -80,7 +88,7 @@ class BookingFormModel {
             }
         }
         self.fullPrice = fullPrice
-        return "Общая стоимость: \(fullPrice) рублей"
+        return "Общая стоимость: \(fullPrice) руб."
     }
     
     func updateElementsQuantity(indexPath: IndexPath, value: Int) {
@@ -132,5 +140,28 @@ class BookingFormModel {
             return "\(elementsQuantity[serviceName] ?? 0)"
         default: return "0"
         }
+    }
+    
+    //MARK: - Editing
+    
+    func isBookingEditing() -> Bool {
+        return editingBooking != nil
+    }
+    
+    func getClientSurname() -> String? {
+        return editingBooking?.clientSurname
+    }
+    
+    func getClientName() -> String? {
+        return editingBooking?.clientName
+    }
+    
+    func getClientPhoneNumber() -> String? {
+        return editingBooking?.clientPhoneNumber
+    }
+    
+    func fulfillEditingData() {
+        fullPrice = editingBooking?.fullPrice ?? 0
+        elementsQuantity = editingBooking?.elementsQuantity ?? [:]
     }
 }

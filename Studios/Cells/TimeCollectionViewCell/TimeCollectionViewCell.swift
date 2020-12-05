@@ -1,9 +1,3 @@
-//
-//  TimeCollectionViewCell.swift
-//  Studios
-//
-//  Created by Evgeny Kamaev on 02.12.2020.
-//
 
 import UIKit
 

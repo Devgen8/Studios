@@ -1,9 +1,3 @@
-//
-//  TableViewCell.swift
-//  Studios
-//
-//  Created by Evgeny Kamaev on 04.12.2020.
-//
 
 import UIKit
 

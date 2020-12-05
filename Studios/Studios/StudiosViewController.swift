@@ -10,8 +10,8 @@ class StudiosViewController: UIViewController {
     @IBOutlet weak var timePickingSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    var blurEffectView = UIVisualEffectView()
-    var loaderView = UIActivityIndicatorView()
+    private var blurEffectView = UIVisualEffectView()
+    private var loaderView = UIActivityIndicatorView()
     
     let betweenBlueColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
     let betweenRedColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -43,6 +43,10 @@ class StudiosViewController: UIViewController {
         addBlurView()
         addLoaderView()
         prepareData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getStudioStatus()
     }
     
     private func prepareData() {
@@ -97,6 +101,14 @@ class StudiosViewController: UIViewController {
     }
     
     @IBAction func statusDetailsTapped(_ sender: UIButton) {
+        guard (8...22).contains(Calendar.current.component(.hour, from: Date())),
+              model.isStudioBooked() else {
+            return
+        }
+        let bookingDetailsViewController = BookingDetailsViewController()
+        model.transportCurrentData(to: bookingDetailsViewController.model)
+        bookingDetailsViewController.modalPresentationStyle = .fullScreen
+        present(bookingDetailsViewController, animated: true)
     }
     
     func getCellsLayout() -> UICollectionViewFlowLayout {
@@ -124,18 +136,22 @@ class StudiosViewController: UIViewController {
     }
     
     func cancelBookingProcess() {
-        guard startTimeCellIndex != nil || endTimeCellIndex != nil else {
-            return
+        if model.isBookingEditing() {
+            cancelBookingTimeEditing()
+        } else {
+            guard startTimeCellIndex != nil || endTimeCellIndex != nil else {
+                return
+            }
+            if let startIndex = startTimeCellIndex {
+                eraseCells(from: startIndex, to: endTimeCellIndex ?? startIndex)
+            }
+            if let endIndex = endTimeCellIndex {
+                eraseCells(from: startTimeCellIndex ?? endIndex, to: endIndex)
+            }
+            startTimeCellIndex = nil
+            endTimeCellIndex = nil
+            setupBookButton()
         }
-        if let startIndex = startTimeCellIndex {
-            eraseCells(from: startIndex, to: endTimeCellIndex ?? startIndex)
-        }
-        if let endIndex = endTimeCellIndex {
-            eraseCells(from: startTimeCellIndex ?? endIndex, to: endIndex)
-        }
-        startTimeCellIndex = nil
-        endTimeCellIndex = nil
-        setupBookButton()
     }
     
     //MARK: - Loading Screen
@@ -158,16 +174,13 @@ class StudiosViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
-        //view.sendSubviewToBack(blurEffectView)
     }
     
     private func addLoaderView() {
-        //loaderView.hidesWhenStopped = true
         loaderView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loaderView)
         loaderView.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height / 2).isActive = true
         loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //view.sendSubviewToBack(loaderView)
     }
     
     @IBAction func timeMarkChanged(_ sender: UISegmentedControl) {
@@ -203,6 +216,8 @@ extension StudiosViewController: UICollectionViewDataSource {
         let timeString = "\(model.getTimeString(for: indexPath.row)):00"
         if let isEdge = model.isTimeEdge(timeString) {
             cell.backgroundColor = isEdge ? edgeRedColor : betweenRedColor
+        } else {
+            cell.backgroundColor = .white
         }
         cell.timeLabel.text = timeString
         return cell
@@ -223,15 +238,10 @@ extension StudiosViewController: UICollectionViewDelegate {
                     if let index = startTimeCellIndex, index != endTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
                     }
-                    if let index = startTimeCellIndex, index == endTimeCellIndex {
-                        startTimeCellIndex = nil
-                        setupBookButton()
-                        return
-                    }
                     if let startIndex = startTimeCellIndex, startIndex == indexPath.row {
                         startTimeCellIndex = nil
                         if let endIndex = endTimeCellIndex {
-                            eraseCells(from: startIndex + 1, to: endIndex + 1)
+                            eraseCells(from: startIndex, to: endIndex - 1)
                         }
                     } else {
                         startTimeCellIndex = indexPath.row
@@ -247,15 +257,10 @@ extension StudiosViewController: UICollectionViewDelegate {
                     if let index = endTimeCellIndex, index != startTimeCellIndex {
                         collectionView.cellForItem(at: IndexPath(row: index, section: 0))?.backgroundColor = .white
                     }
-                    if let index = endTimeCellIndex, index == startTimeCellIndex {
-                        endTimeCellIndex = nil
-                        setupBookButton()
-                        return
-                    }
                     if let endIndex = endTimeCellIndex, endIndex == indexPath.row {
                         endTimeCellIndex = nil
                         if let startIndex = startTimeCellIndex {
-                            eraseCells(from: startIndex + 1, to: endIndex + 1)
+                            eraseCells(from: startIndex + 1, to: endIndex)
                         }
                     } else {
                         endTimeCellIndex = indexPath.row
@@ -264,10 +269,60 @@ extension StudiosViewController: UICollectionViewDelegate {
                 }
                 setupBookButton()
             } else {
-                
+                if !model.isBookingEditing() {
+                    presentEditingAlert(for: indexPath.row)
+                }
             }
         }
+        if model.getAdminMode() == .read, !model.isStudioEmpty(at: indexPath.row) {
+            let bookingDetailsViewController = BookingDetailsViewController()
+            model.transportData(to: bookingDetailsViewController.model, cellIndex: indexPath.row)
+            bookingDetailsViewController.modalPresentationStyle = .fullScreen
+            present(bookingDetailsViewController, animated: true)
+        }
     }
+    
+    func presentEditingAlert(for index: Int) {
+        let alertController = UIAlertController(title: "Редактирование", message: "Выберите тип редактирования", preferredStyle: .actionSheet)
+        let editAction = UIAlertAction(title: "Изменить", style: .default) { (_) in
+            self.makeBookingTimeEditable(for: index)
+        }
+        let deleteAction = UIAlertAction(title: "Отменить бронирование", style: .destructive) { (_) in
+            self.deleteBooking(for: index)
+        }
+        let cancelAction = UIAlertAction(title: "Назад", style: .cancel)
+        alertController.addAction(editAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    func deleteBooking(for index: Int) {
+        model.deleteBooking(at: index)
+        scheduleCollectionView.reloadData()
+    }
+    
+    func makeBookingTimeEditable(for index: Int) {
+        let (startIndex, endIndex) = model.getEditingTimeIndecies(for: index)
+        model.removeBookedTimeForEditing()
+        startTimeCellIndex = startIndex
+        endTimeCellIndex = endIndex
+        scheduleCollectionView.cellForItem(at: IndexPath(row: startIndex, section: 0))?.backgroundColor = edgeBlueColor
+        scheduleCollectionView.cellForItem(at: IndexPath(row: endIndex, section: 0))?.backgroundColor = edgeBlueColor
+        colorBetweenDates()
+        setupBookButton()
+    }
+    
+    func cancelBookingTimeEditing() {
+        model.addBookedTimeForEditing()
+        model.stopEditingBooking()
+        startTimeCellIndex = nil
+        endTimeCellIndex = nil
+        setupBookButton()
+        scheduleCollectionView.reloadData()
+    }
+    
+    //MARK: - Cells cleaning functions
     
     func colorBetweenDates() {
         guard let startIndex = startTimeCellIndex,
@@ -301,6 +356,7 @@ extension StudiosViewController: UICollectionViewDelegate {
     }
     
     func eraseCells(from startIndex: Int, to endIndex: Int) {
+        guard startIndex < endIndex else { return }
         for cellIndex in 0..<model.getNumberOfTimes() {
             if (startIndex...endIndex).contains(cellIndex) {
                 scheduleCollectionView.cellForItem(at: IndexPath(row: cellIndex, section: 0))?.backgroundColor = .white

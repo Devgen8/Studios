@@ -26,6 +26,21 @@
 		4816504F257A3E5200AEEE46 /* PriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */; };
 		48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165053257A486F00AEEE46 /* CustonProtocols.swift */; };
 		4816505A257A655100AEEE46 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165059257A655100AEEE46 /* Booking.swift */; };
+		4816505E257A91FD00AEEE46 /* BookingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816505C257A91FD00AEEE46 /* BookingDetailsViewController.swift */; };
+		4816505F257A91FD00AEEE46 /* BookingDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4816505D257A91FD00AEEE46 /* BookingDetailsViewController.xib */; };
+		48165062257A925C00AEEE46 /* BookingDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165061257A925C00AEEE46 /* BookingDetailsModel.swift */; };
+		48165068257B755E00AEEE46 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48165066257B755E00AEEE46 /* ClientsViewController.swift */; };
+		48165069257B755E00AEEE46 /* ClientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48165067257B755E00AEEE46 /* ClientsViewController.xib */; };
+		4816506D257B759500AEEE46 /* ClientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4816506C257B759500AEEE46 /* ClientsModel.swift */; };
+		48EAC7C3257B78BD00A1D767 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7C1257B78BD00A1D767 /* ClientTableViewCell.swift */; };
+		48EAC7C4257B78BD00A1D767 /* ClientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EAC7C2257B78BD00A1D767 /* ClientTableViewCell.xib */; };
+		48EAC7C7257B79E200A1D767 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7C6257B79E200A1D767 /* Client.swift */; };
+		48EAC7CC257C112000A1D767 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7CA257C112000A1D767 /* SettingsViewController.swift */; };
+		48EAC7CD257C112000A1D767 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EAC7CB257C112000A1D767 /* SettingsViewController.xib */; };
+		48EAC7D1257C118B00A1D767 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7D0257C118B00A1D767 /* SettingsModel.swift */; };
+		48EAC7D5257C12CC00A1D767 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7D3257C12CC00A1D767 /* ServiceTableViewCell.swift */; };
+		48EAC7D6257C12CC00A1D767 /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EAC7D4257C12CC00A1D767 /* ServiceTableViewCell.xib */; };
+		48EAC7D9257C14EF00A1D767 /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EAC7D8257C14EF00A1D767 /* ServiceType.swift */; };
 		53ADE252E570087582F138AE /* Pods_Studios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +68,21 @@
 		4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceTableViewCell.xib; sourceTree = "<group>"; };
 		48165053257A486F00AEEE46 /* CustonProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonProtocols.swift; sourceTree = "<group>"; };
 		48165059257A655100AEEE46 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		4816505C257A91FD00AEEE46 /* BookingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsViewController.swift; sourceTree = "<group>"; };
+		4816505D257A91FD00AEEE46 /* BookingDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingDetailsViewController.xib; sourceTree = "<group>"; };
+		48165061257A925C00AEEE46 /* BookingDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsModel.swift; sourceTree = "<group>"; };
+		48165066257B755E00AEEE46 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
+		48165067257B755E00AEEE46 /* ClientsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientsViewController.xib; sourceTree = "<group>"; };
+		4816506C257B759500AEEE46 /* ClientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsModel.swift; sourceTree = "<group>"; };
+		48EAC7C1257B78BD00A1D767 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		48EAC7C2257B78BD00A1D767 /* ClientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTableViewCell.xib; sourceTree = "<group>"; };
+		48EAC7C6257B79E200A1D767 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		48EAC7CA257C112000A1D767 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		48EAC7CB257C112000A1D767 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		48EAC7D0257C118B00A1D767 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		48EAC7D3257C12CC00A1D767 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		48EAC7D4257C12CC00A1D767 /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
+		48EAC7D8257C14EF00A1D767 /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
 		B8B61B19BCF7F2F160AB7208 /* Pods_Studios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,8 +126,10 @@
 				48165053257A486F00AEEE46 /* CustonProtocols.swift */,
 				48164FE52576DD3800AEEE46 /* Studios */,
 				481650452578E6F100AEEE46 /* BookingForm */,
-				481650392577BE3C00AEEE46 /* TimeCollectionViewCell */,
-				48165056257A580400AEEE46 /* PriceTableViewCell */,
+				48165064257B750400AEEE46 /* BookingDetails */,
+				4816506F257B77BE00AEEE46 /* Clients */,
+				48EAC7DB257C23F700A1D767 /* Settings */,
+				48EAC7DE257C241F00A1D767 /* Cells */,
 				48164F892576573700AEEE46 /* Assets.xcassets */,
 				48164F8B2576573700AEEE46 /* LaunchScreen.storyboard */,
 				48164F8E2576573700AEEE46 /* Info.plist */,
@@ -143,6 +175,67 @@
 				4816504D257A3E5200AEEE46 /* PriceTableViewCell.xib */,
 			);
 			path = PriceTableViewCell;
+			sourceTree = "<group>";
+		};
+		48165064257B750400AEEE46 /* BookingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4816505C257A91FD00AEEE46 /* BookingDetailsViewController.swift */,
+				48165061257A925C00AEEE46 /* BookingDetailsModel.swift */,
+				4816505D257A91FD00AEEE46 /* BookingDetailsViewController.xib */,
+			);
+			path = BookingDetails;
+			sourceTree = "<group>";
+		};
+		4816506F257B77BE00AEEE46 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				48165066257B755E00AEEE46 /* ClientsViewController.swift */,
+				4816506C257B759500AEEE46 /* ClientsModel.swift */,
+				48EAC7C6257B79E200A1D767 /* Client.swift */,
+				48165067257B755E00AEEE46 /* ClientsViewController.xib */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		48EAC7C9257C10E100A1D767 /* ClientTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				48EAC7C1257B78BD00A1D767 /* ClientTableViewCell.swift */,
+				48EAC7C2257B78BD00A1D767 /* ClientTableViewCell.xib */,
+			);
+			path = ClientTableViewCell;
+			sourceTree = "<group>";
+		};
+		48EAC7DB257C23F700A1D767 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				48EAC7CA257C112000A1D767 /* SettingsViewController.swift */,
+				48EAC7D0257C118B00A1D767 /* SettingsModel.swift */,
+				48EAC7D8257C14EF00A1D767 /* ServiceType.swift */,
+				48EAC7CB257C112000A1D767 /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		48EAC7DD257C240200A1D767 /* ServiceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				48EAC7D3257C12CC00A1D767 /* ServiceTableViewCell.swift */,
+				48EAC7D4257C12CC00A1D767 /* ServiceTableViewCell.xib */,
+			);
+			path = ServiceTableViewCell;
+			sourceTree = "<group>";
+		};
+		48EAC7DE257C241F00A1D767 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				48EAC7DD257C240200A1D767 /* ServiceTableViewCell */,
+				48EAC7C9257C10E100A1D767 /* ClientTableViewCell */,
+				481650392577BE3C00AEEE46 /* TimeCollectionViewCell */,
+				48165056257A580400AEEE46 /* PriceTableViewCell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		73BDCCE249E9BC2B9DE79F02 /* Frameworks */ = {
@@ -221,12 +314,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48EAC7CD257C112000A1D767 /* SettingsViewController.xib in Resources */,
+				48165069257B755E00AEEE46 /* ClientsViewController.xib in Resources */,
 				481650432578E6E900AEEE46 /* BookingFormViewController.xib in Resources */,
+				48EAC7C4257B78BD00A1D767 /* ClientTableViewCell.xib in Resources */,
 				48164F8D2576573700AEEE46 /* LaunchScreen.storyboard in Resources */,
 				4816504F257A3E5200AEEE46 /* PriceTableViewCell.xib in Resources */,
 				48164FA6257661C200AEEE46 /* GoogleService-Info.plist in Resources */,
 				481650372577B5D600AEEE46 /* TimeCollectionViewCell.xib in Resources */,
 				48164FA325765EEA00AEEE46 /* StudiosViewController.xib in Resources */,
+				48EAC7D6257C12CC00A1D767 /* ServiceTableViewCell.xib in Resources */,
+				4816505F257A91FD00AEEE46 /* BookingDetailsViewController.xib in Resources */,
 				48164F8A2576573700AEEE46 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,15 +378,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4816506D257B759500AEEE46 /* ClientsModel.swift in Sources */,
+				48EAC7CC257C112000A1D767 /* SettingsViewController.swift in Sources */,
 				48164FA225765EEA00AEEE46 /* StudiosViewController.swift in Sources */,
 				4816505A257A655100AEEE46 /* Booking.swift in Sources */,
 				4816503B2577C9FB00AEEE46 /* StudiosModel.swift in Sources */,
+				48165068257B755E00AEEE46 /* ClientsViewController.swift in Sources */,
+				4816505E257A91FD00AEEE46 /* BookingDetailsViewController.swift in Sources */,
+				48EAC7D9257C14EF00A1D767 /* ServiceType.swift in Sources */,
 				48164F812576573600AEEE46 /* AppDelegate.swift in Sources */,
 				48165054257A486F00AEEE46 /* CustonProtocols.swift in Sources */,
+				48EAC7C7257B79E200A1D767 /* Client.swift in Sources */,
 				4816504A2578F76F00AEEE46 /* BookingFormModel.swift in Sources */,
 				48164F832576573600AEEE46 /* SceneDelegate.swift in Sources */,
+				48EAC7C3257B78BD00A1D767 /* ClientTableViewCell.swift in Sources */,
+				48EAC7D5257C12CC00A1D767 /* ServiceTableViewCell.swift in Sources */,
 				4816504E257A3E5200AEEE46 /* PriceTableViewCell.swift in Sources */,
 				48164F9B25765DB800AEEE46 /* TabBarViewController.swift in Sources */,
+				48165062257A925C00AEEE46 /* BookingDetailsModel.swift in Sources */,
+				48EAC7D1257C118B00A1D767 /* SettingsModel.swift in Sources */,
 				481650362577B5D600AEEE46 /* TimeCollectionViewCell.swift in Sources */,
 				481650422578E6E900AEEE46 /* BookingFormViewController.swift in Sources */,
 				4816503E25780B1400AEEE46 /* AdminMode.swift in Sources */,
@@ -432,7 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6ZH644H3JU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Studios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,7 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6ZH644H3JU;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Studios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

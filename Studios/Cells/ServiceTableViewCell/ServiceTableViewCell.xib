@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="ServiceTableViewCell" customModule="Studios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="448" height="121"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="385" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-HQ-pyc">
+                        <rect key="frame" x="305" y="0.0" width="70" height="121"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="3Hd-AX-22p"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xru-Un-zcB">
+                        <rect key="frame" x="15" y="0.0" width="275" height="121"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cSn-HQ-pyc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0o2-R4-yrQ"/>
+                    <constraint firstAttribute="trailing" secondItem="cSn-HQ-pyc" secondAttribute="trailing" constant="10" id="5Uz-Nu-iT1"/>
+                    <constraint firstItem="cSn-HQ-pyc" firstAttribute="leading" secondItem="xru-Un-zcB" secondAttribute="trailing" constant="15" id="AWa-d7-kmw"/>
+                    <constraint firstAttribute="bottom" secondItem="xru-Un-zcB" secondAttribute="bottom" id="DUi-rx-47b"/>
+                    <constraint firstItem="xru-Un-zcB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="HMk-KE-p4M"/>
+                    <constraint firstItem="xru-Un-zcB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rTm-op-Zqk"/>
+                    <constraint firstAttribute="bottom" secondItem="cSn-HQ-pyc" secondAttribute="bottom" id="vfM-fg-Z4n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="priceLabel" destination="cSn-HQ-pyc" id="aBf-1Q-mnf"/>
+                <outlet property="serviceNameLabel" destination="xru-Un-zcB" id="aI2-zH-SaA"/>
+            </connections>
+            <point key="canvasLocation" x="230.43478260869566" y="171.76339285714286"/>
+        </tableViewCell>
+    </objects>
+</document>
